@@ -9,7 +9,7 @@ class Worker {
   public static void main(String[] args) {
     try {
       Jedis redis = connectToRedis("redis");
-      Connection dbConn = connectToDB("db");
+      Connection dbConn = connectToDB("postgresql");
 
       System.err.println("Watching vote queue");
 
@@ -70,7 +70,7 @@ class Worker {
     try {
 
       Class.forName("org.postgresql.Driver");
-      String url = "jdbc:postgresql://" + host + "/postgres?user=postgres_user&password=postgres_password";
+      String url = "jdbc:postgresql://" + host + "/sampledb?user=postgres_user&password=postgres_password";
 
       while (conn == null) {
         try {
